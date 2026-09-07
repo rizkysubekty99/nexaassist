@@ -1,0 +1,18 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#1E1B4B"/>
+  <rect x="50" y="50" width="700" height="400" rx="10" fill="#312E81"/>
+  <rect x="80" y="80" width="640" height="30" rx="5" fill="#6366F1"/>
+  <rect x="100" y="130" width="600" height="280" rx="8" fill="#4338CA" fill-opacity="0.5"/>
+  <rect x="120" y="150" width="150" height="20" rx="4" fill="#818CF8"/>
+  <rect x="120" y="190" width="100" height="60" rx="5" fill="#6366F1"/>
+  <text x="170" y="225" font-family="Arial" font-size="10" fill="#A5B4FC" text-anchor="middle">Customer</text>
+  <path d="M220 220 L250 190 L280 210 L310 170" stroke="#818CF8" stroke-width="2" stroke-dasharray="5 5"/>
+  <rect x="320" y="170" width="100" height="60" rx="5" fill="#8B5CF6"/>
+  <text x="370" y="205" font-family="Arial" font-size="10" fill="#C4B5FD" text-anchor="middle">n8n</text>
+  <path d="M420 200 L450 200 L480 180" stroke="#818CF8" stroke-width="2" stroke-dasharray="5 5"/>
+  <rect x="490" y="160" width="100" height="60" rx="5" fill="#22C55E"/>
+  <text x="540" y="195" font-family="Arial" font-size="10" fill="#BBF7D0" text-anchor="middle">AI</text>
+  <path d="M590 190 L620 190 L650 200" stroke="#818CF8" stroke-width="2" stroke-dasharray="5 5"/>
+  <rect x="660" y="180" width="80" height="60" rx="5" fill="#EC4899"/>
+  <text x="700" y="215" font-family="Arial" font-size="10" fill="#FBCFE8" text-anchor="middle">Email</text>
+</svg>
