@@ -1,99 +1,109 @@
-import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Cog, Workflow, Database, Headphones, ShoppingCart, Search, Bot } from "lucide-react";
+import {
+  Headphones,
+  Monitor,
+  Database,
+  ShoppingBag,
+  Search,
+  FileText,
+  Cpu,
+  ArrowRight,
+} from "lucide-react";
 import { services } from "@/data/services";
-import ServiceCard from "@/components/ServiceCard";
 import SectionTitle from "@/components/SectionTitle";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description: "Explore our comprehensive services - Virtual Assistance, E-commerce Support, Research & Data, and AI & Automation for growing businesses.",
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Headphones,
+  Monitor,
+  Database,
+  ShoppingBag,
+  Search,
+  FileText,
+  Cpu,
 };
 
-const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-  Monitor: Cog,
-  ShoppingBag: ShoppingCart,
-  Search: Search,
-  Cpu: Bot,
+const colorMap: Record<string, string> = {
+  Headphones: "from-blue-500 to-cyan-500",
+  Monitor: "from-emerald-500 to-teal-500",
+  Database: "from-amber-500 to-orange-500",
+  ShoppingBag: "from-purple-500 to-pink-500",
+  Search: "from-blue-500 to-indigo-500",
+  FileText: "from-pink-500 to-rose-500",
+  Cpu: "from-violet-500 to-purple-500",
 };
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-        
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">What We Offer</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Our{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">
-                Services
-              </span>
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
             <p className="text-lg text-muted-foreground">
-              Comprehensive support solutions designed to help your business grow
+              Comprehensive digital support solutions for growing businesses.
+              From application support to AI automation, we help you handle the
+              technical and operational aspects of your business.
             </p>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 md:py-24 relative">
-        <div className="absolute inset-0 bg-dots-pattern opacity-20" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="space-y-16">
             {services.map((service, index) => {
-              const IconComponent = serviceIcons[service.icon] || Cog;
+              const Icon = iconMap[service.icon] || Monitor;
+              const colorClass = colorMap[service.icon] || "from-blue-500 to-cyan-500";
+              const isEven = index % 2 === 0;
+
               return (
-                <div key={service.id} className="space-y-6">
-                  <div className="bg-card border rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-                    <div className="p-6">
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                          <IconComponent className="w-7 h-7 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                          <p className="text-muted-foreground">{service.description}</p>
-                        </div>
-                      </div>
+                <div
+                  key={service.id}
+                  id={service.id}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                    isEven ? "" : "lg:flex-row-reverse"
+                  }`}
+                >
+                  {/* Content */}
+                  <div className={isEven ? "" : "lg:order-2"}>
+                    <div
+                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colorClass} flex items-center justify-center mb-6`}
+                    >
+                      <Icon className="h-7 w-7 text-white" />
                     </div>
-                  </div>
-                  
-                  {/* Additional Details */}
-                  <div className="bg-card border border-border/50 rounded-2xl p-6 space-y-6">
-                    {/* What We Can Help With */}
-                    <div>
-                      <h4 className="font-semibold mb-3 flex items-center gap-2">
-                        <Workflow className="w-4 h-4 text-primary" />
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                      {service.title}
+                    </h2>
+                    <p className="text-muted-foreground mb-6">
+                      {service.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="mb-6">
+                      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
                         What We Can Help With:
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      </h3>
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {service.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center text-sm text-muted-foreground">
-                            <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                          <li
+                            key={idx}
+                            className="flex items-center text-sm"
+                          >
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 flex-shrink-0" />
                             {feature}
-                          </div>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
 
                     {/* Tools */}
                     <div>
-                      <h4 className="font-semibold mb-3 flex items-center gap-2">
-                        <Database className="w-4 h-4 text-primary" />
+                      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
                         Tools We Use:
-                      </h4>
+                      </h3>
                       <div className="flex flex-wrap gap-2">
                         {service.tools.map((tool, idx) => (
                           <span
@@ -105,19 +115,22 @@ export default function ServicesPage() {
                         ))}
                       </div>
                     </div>
+                  </div>
 
-                    {/* Related Portfolio */}
-                    {service.relatedPortfolio.length > 0 && (
-                      <div className="pt-4 border-t border-border/50">
-                        <Link
-                          href={`/portfolio/${service.relatedPortfolio[0]}`}
-                          className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                  {/* Visual */}
+                  <div className={isEven ? "" : "lg:order-1"}>
+                    <div className="bg-gradient-to-br from-primary/10 to-secondary/20 rounded-2xl p-8 aspect-square flex items-center justify-center">
+                      <div className="text-center">
+                        <div
+                          className={`w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br ${colorClass} flex items-center justify-center mb-4`}
                         >
-                          View Related Case Study
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
+                          <Icon className="h-12 w-12 text-white" />
+                        </div>
+                        <p className="text-sm text-muted-foreground">
+                          {service.title}
+                        </p>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
               );
@@ -126,36 +139,39 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process Overview */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 relative">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Service Categories */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
           <SectionTitle
-            title="Our Process"
-            subtitle="How we deliver each project"
+            title="Service Categories"
+            subtitle="Browse our services by category"
           />
-          <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-              {[
-                { step: "01", title: "Understand" },
-                { step: "02", title: "Plan" },
-                { step: "03", title: "Execute" },
-                { step: "04", title: "Review" },
-                { step: "05", title: "Deliver" },
-              ].map((item, index) => (
-                <div 
-                  key={index} 
-                  className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-xl p-4 text-center hover:shadow-lg hover:shadow-primary/5 transition-all hover:-translate-y-1"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service) => {
+              const Icon = iconMap[service.icon] || Monitor;
+              const colorClass = colorMap[service.icon] || "from-blue-500 to-cyan-500";
+
+              return (
+                <Link
+                  key={service.id}
+                  href={`#${service.id}`}
+                  className="group bg-card border rounded-xl p-6 hover:shadow-lg hover:shadow-primary/5 transition-all hover:-translate-y-1"
                 >
-                  <div className="text-2xl font-bold bg-gradient-to-br from-primary to-purple-600 bg-clip-text text-transparent mb-2">
-                    {item.step}
+                  <div
+                    className={`w-10 h-10 rounded-lg bg-gradient-to-br ${colorClass} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  >
+                    <Icon className="h-5 w-5 text-white" />
                   </div>
-                  <p className="text-sm font-medium">{item.title}</p>
-                </div>
-              ))}
-            </div>
+                  <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <div className="flex items-center text-sm text-muted-foreground group-hover:text-primary transition-colors">
+                    Learn more
+                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

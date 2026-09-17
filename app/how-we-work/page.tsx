@@ -1,197 +1,165 @@
-import { Metadata } from "next";
-import { Workflow, Sparkles, MessageSquare, Clock, CheckCircle, ArrowRight, Settings, Users, Zap } from "lucide-react";
-import ProcessStep from "@/components/ProcessStep";
+import Link from "next/link";
+import { ArrowRight, MessageSquare, Lightbulb, PenTool, Eye, Package, RefreshCw } from "lucide-react";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "How We Work",
-  description: "Learn about NexaAssist's working process - from understanding requirements to delivering completed work.",
-};
-
-const processSteps = [
+const steps = [
   {
     number: "01",
+    icon: MessageSquare,
     title: "Understand",
-    description: "We start by understanding your requirements, business processes, and specific needs. Clear communication ensures we&apos;re aligned from the beginning.",
+    description: "Understand the task, problem or business requirement. We ask questions and gather all necessary information to ensure we fully understand what you need.",
   },
   {
     number: "02",
+    icon: Lightbulb,
     title: "Plan",
-    description: "We define tasks, deliverables, timeline, and communication approach. Planning together sets realistic expectations and ensures smooth execution.",
+    description: "Define scope, deliverables and workflow. We outline the approach, timeline, and how we will tackle the task systematically.",
   },
   {
     number: "03",
+    icon: PenTool,
     title: "Execute",
-    description: "We complete the work carefully and efficiently, following the agreed plan. Regular check-ins keep you updated on progress.",
+    description: "Perform the task carefully and systematically. We work through the task methodically, keeping your requirements in mind throughout.",
   },
   {
     number: "04",
+    icon: Eye,
     title: "Review",
-    description: "Before delivery, we review the work to ensure quality and accuracy. This step catches any issues and ensures you receive polished results.",
+    description: "Check accuracy, quality and completeness. We review our work to ensure it meets your standards and requirements.",
   },
   {
     number: "05",
+    icon: Package,
     title: "Deliver",
-    description: "We deliver the completed work with clear documentation. We welcome feedback and are ready to make adjustments as needed.",
+    description: "Deliver the result with clear communication and documentation. We provide the completed work along with any relevant documentation.",
+  },
+  {
+    number: "06",
+    icon: RefreshCw,
+    title: "Follow Up",
+    description: "For support tasks, follow up after delivery when necessary. We ensure everything is working as expected and address any issues.",
   },
 ];
-
-const principles = [
-  {
-    icon: MessageSquare,
-    title: "Clear Communication",
-    description: "Professional, timely communication in English. We keep you informed throughout every project.",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Settings,
-    title: "Organized Workflow",
-    description: "Structured processes and documentation ensure work is trackable and easy to understand.",
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: CheckCircle,
-    title: "Quality First",
-    description: "We focus on accuracy and attention to detail. Every deliverable goes through quality checks.",
-    color: "from-emerald-500 to-teal-500",
-  },
-  {
-    icon: Users,
-    title: "Flexible Approach",
-    description: "We adapt to your preferred tools and working style. Communication happens via your preferred channels.",
-    color: "from-amber-500 to-orange-500",
-  },
-];
-
-const tools = ["Email", "Slack", "Zoom", "Google Meet", "Trello", "Notion", "Asana", "Monday.com"];
 
 export default function HowWeWorkPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-40 left-[15%] w-4 h-4 bg-primary/40 rotate-45 animate-float" />
-        <div className="absolute top-60 right-[25%] w-3 h-3 bg-purple-400/50 rounded-full animate-float delay-200" />
-        <div className="absolute bottom-40 left-[20%] w-5 h-5 bg-cyan-400/40 rotate-12 animate-float delay-300" />
-        
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
-              <Workflow className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Our Process</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              How{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">
-                We Work
-              </span>
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">How We Work</h1>
             <p className="text-lg text-muted-foreground">
-              A structured approach to delivering quality work and building lasting working relationships
+              Our systematic approach ensures quality work and clear communication
+              throughout every project. Here&apos;s how we work with clients.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-16 md:py-24 relative">
-        <div className="absolute inset-0 bg-dots-pattern opacity-20" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Our Process</h2>
-              <p className="text-muted-foreground">
-                From initial understanding to final delivery
-              </p>
-            </div>
-
-            <div className="space-y-0">
-              {processSteps.map((step, index) => (
-                <ProcessStep
+      {/* Process Steps */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-8">
+              {steps.map((step, index) => (
+                <div
                   key={step.number}
-                  number={step.number}
-                  title={step.title}
-                  description={step.description}
-                  isLast={index === processSteps.length - 1}
-                />
+                  className="relative"
+                >
+                  {/* Connector Line */}
+                  {index < steps.length - 1 && (
+                    <div className="absolute left-6 top-20 w-0.5 h-12 bg-gradient-to-b from-primary/20 to-primary/5 hidden md:block" />
+                  )}
+
+                  <div className="flex gap-6">
+                    {/* Number Circle */}
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg">
+                        {step.number}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 bg-card border rounded-xl p-6 hover:shadow-lg transition-shadow">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <step.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h2 className="text-xl font-bold mb-2">{step.title}</h2>
+                          <p className="text-muted-foreground">{step.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Principles */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5 relative">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Working Principles</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              The values that guide our work and interactions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {principles.map((item, index) => (
-              <div 
-                key={index} 
-                className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:shadow-xl hover:shadow-primary/5 transition-all hover:-translate-y-1"
-              >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <item.icon className="h-6 w-6 text-white" />
+      {/* Key Principles */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">Key Principles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              {[
+                {
+                  title: "Clear Communication",
+                  description: "We communicate clearly and regularly, keeping you informed of progress and any issues.",
+                },
+                {
+                  title: "Organized Process",
+                  description: "We follow a systematic approach to ensure nothing is missed and quality is maintained.",
+                },
+                {
+                  title: "Documentation",
+                  description: "We document our work and processes for future reference and continuity.",
+                },
+                {
+                  title: "Quality First",
+                  description: "We prioritize quality over speed, ensuring deliverables meet your standards.",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-card border rounded-xl p-6"
+                >
+                  <h3 className="font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Communication */}
-      <section className="py-16 md:py-24 relative">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Communication & Collaboration</h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  We work primarily remotely and are comfortable with asynchronous collaboration
-                  across different time zones.
-                </p>
-                <p>
-                  Our communication tools include email, project management platforms, and video
-                  calls when needed. We adapt to your preferred channels and establish regular
-                  check-in schedules.
-                </p>
-                <p>
-                  Whether you need daily updates or weekly summaries, we adjust our communication
-                  frequency to match your preferences and project needs.
-                </p>
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20 rounded-2xl p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <Zap className="w-6 h-6 text-primary" />
-                <h3 className="font-semibold text-lg">Tools We Commonly Use</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {tools.map((tool) => (
-                  <div key={tool} className="flex items-center gap-2 text-sm p-2 bg-card/50 rounded-lg">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span>{tool}</span>
-                  </div>
-                ))}
-              </div>
+      {/* Working Together */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Ready to Work Together?</h2>
+            <p className="text-muted-foreground mb-8">
+              We follow this systematic approach with every project to ensure consistent
+              quality and clear communication. Let&apos;s discuss your needs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all"
+              >
+                Start a Conversation
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/services"
+                className="px-6 py-3 border border-border font-medium rounded-lg hover:bg-muted transition-all"
+              >
+                View Our Services
+              </Link>
             </div>
           </div>
         </div>

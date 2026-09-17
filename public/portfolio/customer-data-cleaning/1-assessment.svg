@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#F0FDF4"/>
+  <rect x="150" y="80" width="500" height="340" rx="12" fill="white" stroke="#22C55E" stroke-width="2"/>
+  <text x="400" y="120" text-anchor="middle" font-family="system-ui" font-size="18" font-weight="600" fill="#16A34A">Raw Data Assessment</text>
+  <rect x="180" y="150" width="200" height="30" rx="4" fill="#EF4444" opacity="0.2"/>
+  <rect x="420" y="150" width="200" height="30" rx="4" fill="#22C55E" opacity="0.2"/>
+  <text x="280" y="170" text-anchor="middle" font-family="system-ui" font-size="12" fill="#DC2626">Before: Messy Data</text>
+  <text x="520" y="170" text-anchor="middle" font-family="system-ui" font-size="12" fill="#16A34A">After: Clean Data</text>
+  <rect x="180" y="200" width="440" height="180" rx="6" fill="#22C55E" opacity="0.05"/>
+  <text x="400" y="250" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B7280">Data Quality Analysis</text>
+  <text x="400" y="280" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B7280">Duplicates: 127 | Missing: 89 | Invalid: 45</text>
+</svg>

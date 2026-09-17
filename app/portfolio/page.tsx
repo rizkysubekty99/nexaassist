@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkles, FolderOpen } from "lucide-react";
 import { portfolioItems, portfolioCategories } from "@/data/portfolio";
 import PortfolioCard from "@/components/PortfolioCard";
 import SectionTitle from "@/components/SectionTitle";
@@ -9,91 +8,94 @@ import SectionTitle from "@/components/SectionTitle";
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredPortfolio =
+  const filteredItems =
     activeCategory === "All"
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === activeCategory);
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-40 left-[15%] w-4 h-4 bg-primary/40 rotate-45 animate-float" />
-        <div className="absolute top-60 right-[25%] w-3 h-3 bg-purple-400/50 rounded-full animate-float delay-200" />
-        <div className="absolute bottom-40 right-[15%] w-5 h-5 bg-cyan-400/40 rotate-12 animate-float delay-300" />
-        
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
-              <FolderOpen className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Our Work</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Our{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">
-                Portfolio
-              </span>
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Portfolio</h1>
             <p className="text-lg text-muted-foreground">
-              Sample projects demonstrating our skills, workflow, and approach to different types of work
+              Sample projects demonstrating our skills, workflow, and approach.
+              These are demonstration projects designed to showcase what we can do.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Demo Notice */}
-      <section className="py-4 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 border-y border-primary/20">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-1 font-medium text-primary">
-              <Sparkles className="w-4 h-4" />
-              Note:
-            </span>{" "}
-            These are self-created demonstration projects designed to showcase our skills and workflow.
-          </p>
+      {/* Demo Project Notice */}
+      <section className="py-8 bg-blue-50 border-y border-blue-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-sm text-blue-800">
+              <strong>Demo Projects:</strong> These are self-created demonstration
+              projects designed to showcase our skills, workflow and approach. They
+              do not represent actual client work.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Filter & Portfolio */}
-      <section className="py-16 md:py-24 relative">
-        <div className="absolute inset-0 bg-dots-pattern opacity-20" />
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Filter */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
+      {/* Portfolio Filter */}
+      <section className="py-8 sticky top-16 z-40 bg-background/95 backdrop-blur border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-2">
             {portfolioCategories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
                   activeCategory === category
-                    ? "bg-gradient-to-r from-primary to-purple-600 text-primary-foreground shadow-lg shadow-primary/25"
-                    : "bg-card border border-border hover:border-primary/30 hover:bg-primary/5"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80"
                 }`}
               >
                 {category}
               </button>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Portfolio Grid */}
+      {/* Portfolio Grid */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPortfolio.map((item) => (
+            {filteredItems.map((item) => (
               <PortfolioCard key={item.slug} item={item} />
             ))}
           </div>
 
-          {/* Empty State */}
-          {filteredPortfolio.length === 0 && (
+          {filteredItems.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No projects found in this category.</p>
+              <p className="text-muted-foreground">
+                No projects found in this category.
+              </p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Note about Demo Projects */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-4">About Our Portfolio</h2>
+            <p className="text-muted-foreground mb-6">
+              Our portfolio features demonstration projects that showcase our skills,
+              workflow, and approach to various tasks. These projects are designed to
+              illustrate how we would handle similar work for actual clients.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Each project demonstrates our systematic approach, attention to detail,
+              and commitment to quality work.
+            </p>
+          </div>
         </div>
       </section>
     </>

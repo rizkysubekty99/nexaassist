@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#FDF2F8"/>
+  <rect x="150" y="80" width="500" height="340" rx="12" fill="white" stroke="#EC4899" stroke-width="2"/>
+  <text x="400" y="120" text-anchor="middle" font-family="system-ui" font-size="18" font-weight="600" fill="#DB2777">Sales Copy</text>
+  <rect x="200" y="150" width="400" height="200" rx="6" fill="#EC4899" opacity="0.05"/>
+  <rect x="220" y="170" width="360" height="30" rx="4" fill="#EC4899" opacity="0.2"/>
+  <text x="400" y="192" text-anchor="middle" font-family="system-ui" font-size="12" font-weight="600" fill="#DB2777">Compelling Headline</text>
+  <rect x="220" y="210" width="360" height="60" rx="4" fill="#EC4899" opacity="0.1"/>
+  <text x="400" y="235" text-anchor="middle" font-family="system-ui" font-size="12" fill="#6B7280">Benefit-driven copy</text>
+  <text x="400" y="370" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B7280">Conversion-focused content</text>
+</svg>

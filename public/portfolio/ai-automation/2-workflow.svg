@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#FAF5FF"/>
+  <rect x="150" y="80" width="500" height="340" rx="12" fill="white" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="400" y="120" text-anchor="middle" font-family="system-ui" font-size="18" font-weight="600" fill="#7C3AED">n8n Workflow</text>
+  <rect x="200" y="150" width="400" height="200" rx="6" fill="#8B5CF6" opacity="0.05"/>
+  <rect x="220" y="180" width="80" height="80" rx="40" fill="#8B5CF6" opacity="0.1"/>
+  <rect x="360" y="180" width="80" height="80" rx="40" fill="#8B5CF6" opacity="0.1"/>
+  <rect x="500" y="180" width="80" height="80" rx="40" fill="#8B5CF6" opacity="0.1"/>
+  <text x="260" y="220" text-anchor="middle" font-family="system-ui" font-size="10" fill="#7C3AED">Form</text>
+  <text x="400" y="220" text-anchor="middle" font-family="system-ui" font-size="10" fill="#7C3AED">n8n</text>
+  <text x="540" y="220" text-anchor="middle" font-family="system-ui" font-size="10" fill="#7C3AED">AI</text>
+  <text x="400" y="370" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B7280">Visual workflow automation</text>
+</svg>

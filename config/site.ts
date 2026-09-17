@@ -1,13 +1,13 @@
 export const siteConfig = {
   name: "NexaAssist",
-  tagline: "Virtual Assistance. E-commerce Support. AI Automation.",
+  tagline: "Remote Digital Support for Growing Businesses",
   description:
-    "Remote virtual assistance, e-commerce support, research, data management and AI automation services for growing businesses.",
+    "Remote digital support for application support, virtual assistance, data, e-commerce, SEO content, WordPress and AI automation.",
   email: "YOUR_EMAIL@example.com",
   links: {
-    linkedin: "https://linkedin.com/company/nexaassist",
-    upwork: "https://upwork.com/agencies/nexaassist",
-    fiverr: "https://fiverr.com/nexaassist",
-    github: "https://github.com/nexaassist",
+    linkedin: "",
+    upwork: "",
+    fiverr: "",
+    github: "",
   },
 };

@@ -3,6 +3,7 @@ export interface TeamMember {
   name: string;
   role: string;
   description: string;
+  shortDescription: string;
   skills: string[];
   image: string;
   linkedin?: string;
@@ -10,13 +11,22 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
   {
-    id: "technical-va",
-    name: "Technical VA",
-    role: "Technical Virtual Assistant & AI Automation Specialist",
+    id: "technical-support",
+    name: "Member 1",
+    role: "Technical Support & Digital Operations Specialist",
+    shortDescription:
+      "Handles application support, technical troubleshooting, data work, and AI automation workflows.",
     description:
-      "I focus on technical virtual assistance, data processing, AI workflows, and business automation. I help turn repetitive manual processes into organized and efficient automated workflows. With expertise in API integrations, database management, and workflow automation using tools like n8n, I bridge the gap between technical complexity and practical business solutions.",
+      "I provide application and technical support for existing business applications, helping users resolve issues, analyzing problems, coordinating with technical teams when necessary, and following up issues through resolution.",
     skills: [
+      "Application Support",
+      "Technical Support",
+      "Troubleshooting",
+      "Issue Analysis",
+      "Excel",
+      "Google Sheets",
       "AI",
+      "Prompt Engineering",
       "n8n",
       "Automation",
       "API",
@@ -24,19 +34,23 @@ export const teamMembers: TeamMember[] = [
       "HTTP Request",
       "SQL",
       "Database",
-      "Excel",
-      "Google Sheets",
-      "Technical Support",
+      "WordPress",
+      "Documentation",
+      "SOP",
+      "Ticket Handling",
+      "Incident Handling",
     ],
     image: "/team/member-1.svg",
-    linkedin: "https://linkedin.com/in/technical-va",
+    linkedin: "",
   },
   {
-    id: "general-va",
-    name: "Virtual Assistant",
-    role: "Virtual Assistant & English Customer Support Specialist",
+    id: "virtual-assistant",
+    name: "Member 2",
+    role: "Virtual Assistant & English Content Support Specialist",
+    shortDescription:
+      "Handles virtual assistance, customer support, research, e-commerce, SEO content, and WordPress tasks.",
     description:
-      "I focus on virtual assistance, English communication, customer support, online research, and e-commerce support. I help businesses stay organized, communicate professionally with international clients, and handle various administrative tasks efficiently. With strong attention to detail and excellent communication skills, I ensure smooth operations and positive client experiences.",
+      "I provide virtual assistance, English communication, customer support, research, e-commerce support, SEO content and website content assistance for online businesses.",
     skills: [
       "Virtual Assistance",
       "English Communication",
@@ -49,9 +63,15 @@ export const teamMembers: TeamMember[] = [
       "Social Media",
       "Excel",
       "Google Sheets",
+      "SEO Content Writing",
+      "Website Content",
+      "Sales Page",
+      "WordPress",
+      "Yoast SEO",
+      "Avada",
       "AI-assisted Tasks",
     ],
     image: "/team/member-2.svg",
-    linkedin: "https://linkedin.com/in/virtual-assistant",
+    linkedin: "",
   },
 ];

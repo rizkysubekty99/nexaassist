@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#FEF2F2"/>
+  <rect x="150" y="80" width="500" height="340" rx="12" fill="white" stroke="#EF4444" stroke-width="2"/>
+  <text x="400" y="120" text-anchor="middle" font-family="system-ui" font-size="18" font-weight="600" fill="#DC2626">Verification Process</text>
+  <rect x="200" y="150" width="400" height="200" rx="6" fill="#EF4444" opacity="0.05"/>
+  <text x="400" y="200" text-anchor="middle" font-family="system-ui" font-size="36" font-weight="600" fill="#DC2626">500+</text>
+  <text x="400" y="240" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B7280">Verified Leads</text>
+  <path d="M340 270L400 300L460 270" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <text x="400" y="370" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B7280">Quality-checked prospect list</text>
+</svg>

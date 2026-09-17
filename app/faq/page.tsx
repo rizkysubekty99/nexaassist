@@ -1,79 +1,93 @@
-import { Metadata } from "next";
-import { HelpCircle, Sparkles, ArrowRight } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import { faqItems } from "@/data/faq";
-import FAQItem from "@/components/FAQItem";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "FAQ",
-  description: "Frequently asked questions about NexaAssist's services, working process, and collaboration approach.",
-};
-
 export default function FAQPage() {
+  const [openItems, setOpenItems] = useState<string[]>([]);
+
+  const toggleItem = (id: string) => {
+    setOpenItems((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-40 left-[15%] w-4 h-4 bg-primary/40 rotate-45 animate-float" />
-        <div className="absolute top-60 right-[25%] w-3 h-3 bg-purple-400/50 rounded-full animate-float delay-200" />
-        <div className="absolute bottom-40 right-[15%] w-5 h-5 bg-cyan-400/40 rotate-12 animate-float delay-300" />
-        
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
-              <HelpCircle className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Questions?</span>
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+              <HelpCircle className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Frequently Asked{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">
-                Questions
-              </span>
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions</h1>
             <p className="text-lg text-muted-foreground">
-              Common questions about working with NexaAssist
+              Find answers to common questions about NexaAssist services,
+              working approach, and capabilities.
             </p>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-16 md:py-24 relative">
-        <div className="absolute inset-0 bg-dots-pattern opacity-20" />
-        <div className="container mx-auto px-4 relative z-10">
+      {/* FAQ Grid */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <div className="bg-card border rounded-2xl shadow-xl shadow-primary/5 overflow-hidden">
-              {faqItems.map((item, index) => (
-                <FAQItem key={item.id} question={item.question} answer={item.answer} />
-              ))}
+            <div className="space-y-4">
+              {faqItems.map((item) => {
+                const isOpen = openItems.includes(item.id);
+
+                return (
+                  <div
+                    key={item.id}
+                    className="bg-card border rounded-xl overflow-hidden"
+                  >
+                    <button
+                      onClick={() => toggleItem(item.id)}
+                      className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/50 transition-colors"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="font-semibold pr-4">{item.question}</span>
+                      <ChevronDown
+                        className={`h-5 w-5 text-muted-foreground flex-shrink-0 transition-transform ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        isOpen ? "max-h-96" : "max-h-0"
+                      }`}
+                    >
+                      <div className="px-6 pb-6 text-muted-foreground">
+                        {item.answer}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 to-purple-500/5 relative">
-        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Still Have Questions */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-2xl mb-6">
-              <Sparkles className="w-8 h-8 text-white" />
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Still have questions?</h2>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Can&apos;t find what you&apos;re looking for? Feel free to reach out and we&apos;ll get back to you as soon as possible.
+            <h2 className="text-2xl font-bold mb-4">Still Have Questions?</h2>
+            <p className="text-muted-foreground mb-6">
+              Can&apos;t find the answer you&apos;re looking for? Reach out to us
+              and we&apos;ll get back to you as soon as possible.
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/25"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-all"
             >
-              Contact Us <ArrowRight className="w-4 h-4" />
+              Contact Us
             </a>
           </div>
         </div>

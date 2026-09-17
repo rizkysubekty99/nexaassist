@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#FDF2F8"/>
+  <rect x="280" y="120" width="240" height="150" rx="8" fill="#EC4899" opacity="0.2"/>
+  <rect x="300" y="140" width="200" height="20" rx="4" fill="#EC4899" opacity="0.3"/>
+  <rect x="300" y="170" width="150" height="12" rx="3" fill="#EC4899" opacity="0.2"/>
+  <rect x="300" y="190" width="180" height="12" rx="3" fill="#EC4899" opacity="0.2"/>
+  <rect x="300" y="220" width="100" height="30" rx="4" fill="#EC4899" opacity="0.3"/>
+  <text x="400" y="330" text-anchor="middle" font-family="system-ui" font-size="24" font-weight="600" fill="#DB2777">WordPress Sales Page</text>
+  <text x="400" y="370" text-anchor="middle" font-family="system-ui" font-size="14" fill="#6B7280">Demo Project</text>
+</svg>
